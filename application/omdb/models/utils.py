@@ -1,4 +1,15 @@
+from django.db import models
 from . import *
+
+
+class Search(models.Model):
+    stamp = models.DateTimeField(auto_now=True)
+    content = models.JSONField()
+    count = models.IntegerField()
+    total = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.stamp} ({self.count})'
 
 
 class generate_id:

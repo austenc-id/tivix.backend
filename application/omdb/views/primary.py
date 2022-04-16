@@ -4,7 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from omdb.models import *
 from omdb.serializers import *
-from .utils import tracker, requester
+from .utils import tracker, search
 
 
 class GalleryViewSet(viewsets.ModelViewSet):
@@ -45,7 +45,7 @@ class MovieViewSet(viewsets.ModelViewSet):
             if len(existing) == 0:
                 trace = tracker(trace)
                 try:
-                    omdb_response = requester.movie(pk)
+                    omdb_response = search.movie( pk)
                     trace = tracker(trace)
                     try:
                         trace = tracker(trace)
@@ -70,6 +70,10 @@ class MovieViewSet(viewsets.ModelViewSet):
             return Response({'message': 'Details not found.'})
 
 
+class SearchViewSet(viewsets.ModelViewSet):
+    queryset = Search.objects.all()
+    serializer_class = SearchSerializer
+    permission_classes = [permissions.AllowAny]
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
