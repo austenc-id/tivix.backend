@@ -4,4 +4,3 @@ from .models import *
 
 admin.site.register(Gallery)
 admin.site.register(Production)
-admin.site.register(Review)

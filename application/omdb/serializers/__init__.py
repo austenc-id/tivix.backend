@@ -1,2 +1,0 @@
-from .primary import GallerySerializer, MovieSerializer, ReviewSerializer, SearchSerializer
-from .supporting import MediumSerializer, GenreSerializer, AudienceSerializer, DirectorSerializer, WriterSerializer, ActorSerializer, LanguageSerializer
