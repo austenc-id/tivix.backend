@@ -1,0 +1,22 @@
+{
+    "name": "Tivix - Python/Django Task",
+    "description": "An application to access OMDb api and serve up api data to a frontend application.",
+    "image": "heroku/python",
+    "repository": "https://github.com/austenc-id/tivix.backend",
+    "keywords": ["python", "django" ],
+    "addons": [ "heroku-postgresql" ],
+    "env": {
+      "SECRET_KEY": {
+        "description": "The secret key for the Django application.",
+        "generator": "secret"
+      }
+    },
+    "environments": {
+      "test": {
+        "scripts": {
+          "test-setup": "python manage.py collectstatic --noinput",
+          "test": "python manage.py test"
+        }
+      }
+    }
+  }
