@@ -1,8 +1,8 @@
+import os
 import requests
-from .keys import OMDB_KEY
 from content.models import Production, Gallery
 
-
+OMDB_KEY = os.getenv('OMDB_KEY')
 class OMDb():
     def __init__(self, query, quantity):
         self.url = f'http://www.omdbapi.com/?r=json&apikey={OMDB_KEY}'
