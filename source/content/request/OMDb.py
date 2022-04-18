@@ -55,7 +55,11 @@ class OMDb():
         from datetime import datetime
         search = Gallery(title=datetime.now() ,type='search')
         search.save()
+        all_movies = Gallery.objects.get(title='all movies')
+        all_productions = Gallery.objects.get(title='all productions')
         for result in results:
             search.productions.add(result)
+            all_movies.productions.add(result)
+            all_productions.productions.add(result)
         search.save()
         return search
